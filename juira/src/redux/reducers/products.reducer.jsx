@@ -11,7 +11,11 @@ import {
   UPDATE_FAVORTITES,
   REMOVE_FAVORTITES,
   ADD_FAVORITES,
+  ADD_CART_API,
+  UPDATE_CART_API,
+  UPDATE_FAV_API,
 } from "../actions/products.actions";
+import axios from "axios";
 
 const initialState = {
   allProducts: "",
@@ -70,13 +74,13 @@ export function productsReducer(state = initialState, action) {
         cart: action.payload,
       };
     case UPDATE_FAVORTITES:
-      localStorage.setItem("itemsInFavorites", JSON.stringify(action.payload))
+      localStorage.setItem("itemsInFavorites", JSON.stringify(action.payload));
       return {
         ...state,
         favorites: action.payload,
       };
     case ADD_CART:
-      const aux = state.cart.find((product) => product.id === action.payload.id)
+      const aux = state.cart?.find((product) => product.id === action.payload.id)
         ? state.cart
         : state.cart.concat(action.payload);
       localStorage.setItem("itemsInCart", JSON.stringify(aux));
@@ -85,8 +89,20 @@ export function productsReducer(state = initialState, action) {
         cart: aux,
       };
 
+    case UPDATE_CART_API:
+      return {
+        ...state,
+        cart: action.payload,
+      };
+
+    case UPDATE_FAV_API:
+      return {
+        ...state,
+        favorites: action.payload,
+      };
+
     case ADD_FAVORITES:
-      const aux4 = state.favorites.find(
+      const aux4 = state.favorites?.find(
         (product) => product.id === action.payload.id
       )
         ? state.favorites

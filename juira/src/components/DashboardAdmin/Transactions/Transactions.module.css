@@ -1,0 +1,6 @@
+.dashWrapper {
+    /* height: 600px; */
+    margin-top: var(--navbarHeight);
+    margin-bottom: var(--navbarHeight);
+    /* border: 1px solid hotpink; */
+}

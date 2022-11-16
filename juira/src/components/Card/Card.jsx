@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Card.module.css";
 import { Link, useParams } from "react-router-dom";
+import axios from "axios";
 
 import { IconButton } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -10,32 +11,51 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart, addToFavorites, removeToCart, removeToFavorites } from "../../redux/actions/products.actions";
+import {
+  addToCart,
+  addToFavorites,
+  removeToCart,
+  removeToFavorites,
+  removeToCartApi,
+  addToCartApi,
+  removeToFavApi,
+  addToFavApi,
+} from "../../redux/actions/products.actions";
+import { API_URL_BACKEND } from "../../api/apiRoute";
 
 export default function Card(props) {
   const dispatch = useDispatch();
   const itemsAddedToCart = useSelector((state) => state.productsReducer.cart);
-  const itemsAddedToFavorites = useSelector((state) => state.productsReducer.favorites)
+  const itemsAddedToFavorites = useSelector(
+    (state) => state.productsReducer.favorites
+  );
+  const role = useSelector((state) => state.app.token.role);
 
   const productIsAddedToCart = (id) => {
-    return itemsAddedToCart.find((item) => item.id === id) ? true : false;
+    return itemsAddedToCart?.find((item) => item.id === id) ? true : false;
   };
   const productIsAddedToFavorites = (id) => {
-    return itemsAddedToFavorites.find((item) => item.id === id) ? true : false;
+    return itemsAddedToFavorites?.find((item) => item.id === id) ? true : false;
   };
- 
-  const handleCart = (p) => {
+
+  const handleCart = async (p) => {
     productIsAddedToCart(p.id)
-    ? dispatch(removeToCart(p.id))
-    : dispatch(addToCart(p))
+      ? role === "usuario"
+        ? dispatch(removeToCartApi(p.id))
+        : dispatch(removeToCart(p.id))
+      : role === "usuario"
+      ? dispatch(addToCartApi(p.id))
+      : dispatch(addToCart(p));
   };
   const handleFavorites = (p) => {
     productIsAddedToFavorites(p.id)
-    ? dispatch(removeToFavorites(p.id))
-    : dispatch(addToFavorites(p))
+      ? role === "usuario"
+        ? dispatch(removeToFavApi(p.id))
+        : dispatch(removeToFavorites(p.id))
+      : role === "usuario"
+      ? dispatch(addToFavApi(p.id))
+      : dispatch(addToFavorites(p));
   };
-
- 
 
   const [fav, setFav] = useState(false);
   const toggleFav = () => {
@@ -55,7 +75,11 @@ export default function Card(props) {
         }}
         onClick={() => handleFavorites(props.product)}
       >
-        {productIsAddedToFavorites(props.product.id) ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+        {productIsAddedToFavorites(props.product.id) ? (
+          <FavoriteIcon />
+        ) : (
+          <FavoriteBorderIcon />
+        )}
       </IconButton>
 
       <div className={[styles.card, styles.stacked].join(" ")}>
@@ -86,13 +110,9 @@ export default function Card(props) {
           }}
         >
           {productIsAddedToCart(props.product.id) ? (
-            <ShoppingCartIcon
-              
-            />
+            <ShoppingCartIcon />
           ) : (
-            <AddShoppingCartIcon
-           
-            />
+            <AddShoppingCartIcon />
           )}
         </IconButton>
       </div>

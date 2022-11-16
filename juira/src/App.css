@@ -11,6 +11,10 @@
   --btnActiveColor: #00ffb3;
   --btnPrimaryFontColor: white;
   --heartColor: #fb7272;
+  /* --colorDashPurchases: rgb(255, 105, 162); */
+   --colorDashPurchases: rgb(255, 105, 115);
+   --colorDashSales: rgb(105, 195, 255);
+   --textColorDashCard: '#ffffff';
 }
 
 *::selection { background: var(--primaryColor); color: white;}

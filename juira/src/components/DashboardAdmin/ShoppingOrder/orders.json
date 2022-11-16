@@ -1,0 +1,204 @@
+[
+    {
+      "id": 1,
+      "state": "pending",
+      "total": 12212,
+      "paymentReceived": false,
+      "payment_id": null,
+      "preference_id": "1223144793-3f7ea6ae-6140-4f63-9aea-39097c12a512",
+      "merchant_id": null,
+      "createdAt": "2022-10-29T03:00:34.280Z",
+      "updatedAt": "2022-10-29T03:00:35.509Z",
+      "cartId": 1,
+      "transactionList": [
+        {
+          "id": 1,
+          "state": "pending",
+          "sellerId": 1,
+          "total": 11000,
+          "createdAt": "2022-10-29T03:00:34.293Z",
+          "updatedAt": "2022-10-29T03:00:34.293Z",
+          "productId": 20,
+          "shoppingOrderId": 1,
+          "buyerId": 1
+        },
+        {
+          "id": 2,
+          "state": "pending",
+          "sellerId": 2,
+          "total": 1000,
+          "createdAt": "2022-10-29T03:00:34.293Z",
+          "updatedAt": "2022-10-29T03:00:34.293Z",
+          "productId": 14,
+          "shoppingOrderId": 1,
+          "buyerId": 1
+        },
+        {
+          "id": 3,
+          "state": "pending",
+          "sellerId": 1,
+          "total": 212,
+          "createdAt": "2022-10-29T03:00:34.293Z",
+          "updatedAt": "2022-10-29T03:00:34.293Z",
+          "productId": 33,
+          "shoppingOrderId": 1,
+          "buyerId": 1
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "state": "pending",
+      "total": 60000,
+      "paymentReceived": false,
+      "payment_id": null,
+      "preference_id": "1223144793-4c70831a-2e7f-4939-94f9-8c68a182a776",
+      "merchant_id": null,
+      "createdAt": "2022-10-29T03:00:54.083Z",
+      "updatedAt": "2022-10-29T03:00:54.818Z",
+      "cartId": 1,
+      "transactionList": [
+        {
+          "id": 4,
+          "state": "pending",
+          "sellerId": 4,
+          "total": 3000,
+          "createdAt": "2022-10-29T03:00:54.088Z",
+          "updatedAt": "2022-10-29T03:00:54.088Z",
+          "productId": 16,
+          "shoppingOrderId": 2,
+          "buyerId": 1
+        },
+        {
+          "id": 5,
+          "state": "pending",
+          "sellerId": 4,
+          "total": 57000,
+          "createdAt": "2022-10-29T03:00:54.089Z",
+          "updatedAt": "2022-10-29T03:00:54.089Z",
+          "productId": 24,
+          "shoppingOrderId": 2,
+          "buyerId": 1
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "state": "pending",
+      "total": 4400,
+      "paymentReceived": false,
+      "payment_id": null,
+      "preference_id": "1223144793-28e4ce92-6a36-4737-b9cb-51922931195a",
+      "merchant_id": null,
+      "createdAt": "2022-10-29T03:01:08.749Z",
+      "updatedAt": "2022-10-29T03:01:10.016Z",
+      "cartId": 1,
+      "transactionList": [
+        {
+          "id": 6,
+          "state": "pending",
+          "sellerId": 3,
+          "total": 3000,
+          "createdAt": "2022-10-29T03:01:08.757Z",
+          "updatedAt": "2022-10-29T03:01:08.757Z",
+          "productId": 43,
+          "shoppingOrderId": 3,
+          "buyerId": 1
+        },
+        {
+          "id": 7,
+          "state": "pending",
+          "sellerId": 7,
+          "total": 1400,
+          "createdAt": "2022-10-29T03:01:08.757Z",
+          "updatedAt": "2022-10-29T03:01:08.757Z",
+          "productId": 39,
+          "shoppingOrderId": 3,
+          "buyerId": 1
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "state": "pending",
+      "total": 24300,
+      "paymentReceived": false,
+      "payment_id": null,
+      "preference_id": "1223144793-b030fd6a-64f6-46a0-b262-413bce7b0854",
+      "merchant_id": null,
+      "createdAt": "2022-10-29T03:01:23.392Z",
+      "updatedAt": "2022-10-29T03:01:24.089Z",
+      "cartId": 1,
+      "transactionList": [
+        {
+          "id": 8,
+          "state": "pending",
+          "sellerId": 1,
+          "total": 4300,
+          "createdAt": "2022-10-29T03:01:23.398Z",
+          "updatedAt": "2022-10-29T03:01:23.398Z",
+          "productId": 32,
+          "shoppingOrderId": 4,
+          "buyerId": 1
+        },
+        {
+          "id": 9,
+          "state": "pending",
+          "sellerId": 7,
+          "total": 20000,
+          "createdAt": "2022-10-29T03:01:23.398Z",
+          "updatedAt": "2022-10-29T03:01:23.398Z",
+          "productId": 19,
+          "shoppingOrderId": 4,
+          "buyerId": 1
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "state": "pending",
+      "total": 173000,
+      "paymentReceived": false,
+      "payment_id": null,
+      "preference_id": "1223144793-6ea79236-caf4-4938-9efa-0ef0e632005c",
+      "merchant_id": null,
+      "createdAt": "2022-10-29T03:01:41.326Z",
+      "updatedAt": "2022-10-29T03:01:42.290Z",
+      "cartId": 1,
+      "transactionList": [
+        {
+          "id": 10,
+          "state": "pending",
+          "sellerId": 1,
+          "total": 100000,
+          "createdAt": "2022-10-29T03:01:41.541Z",
+          "updatedAt": "2022-10-29T03:01:41.541Z",
+          "productId": 1,
+          "shoppingOrderId": 5,
+          "buyerId": 1
+        },
+        {
+          "id": 11,
+          "state": "pending",
+          "sellerId": 5,
+          "total": 71000,
+          "createdAt": "2022-10-29T03:01:41.541Z",
+          "updatedAt": "2022-10-29T03:01:41.541Z",
+          "productId": 25,
+          "shoppingOrderId": 5,
+          "buyerId": 1
+        },
+        {
+          "id": 12,
+          "state": "pending",
+          "sellerId": 3,
+          "total": 2000,
+          "createdAt": "2022-10-29T03:01:41.541Z",
+          "updatedAt": "2022-10-29T03:01:41.541Z",
+          "productId": 8,
+          "shoppingOrderId": 5,
+          "buyerId": 1
+        }
+      ]
+    }
+  ]

@@ -5,14 +5,17 @@ import MenuItem from "@mui/material/MenuItem";
 import { useDispatch, useSelector } from "react-redux";
 import { updateFilter } from "../../../redux/actions/app.actions";
 import DensityMediumIcon from "@mui/icons-material/DensityMedium";
+import FilterAltIcon from "@mui/icons-material/FilterAlt";
 
-const conditionState = ["Como nuevo", "Usado", "Claros signos de uso"];
+const condition = ["Como nuevo", "Usado", "Claros signos de uso"];
 
 const ConditionFilter = () => {
   const dispatch = useDispatch();
+  const conditionState = useSelector(
+    (state) => state.app.filterState.condition
+  );
 
   const [anchorEl, setAnchorEl] = useState(null);
-  const [selectedIndex, setSelectedIndex] = useState("A-Z");
   const open = Boolean(anchorEl);
   const handleClickListItem = (event) => {
     setAnchorEl(event.currentTarget);
@@ -20,7 +23,6 @@ const ConditionFilter = () => {
 
   const handleMenuItemClick = (event, by) => {
     dispatch(updateFilter({ name: "condition", value: by }));
-    setSelectedIndex(by);
     setAnchorEl(null);
   };
 
@@ -40,7 +42,7 @@ const ConditionFilter = () => {
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
-        startIcon={<DensityMediumIcon />}
+        startIcon={conditionState !== "Todos" ? <FilterAltIcon /> : null}
         style={{ color: "var(--primaryColor", marginLeft: "2rem" }}
       >
         Estado
@@ -67,15 +69,15 @@ const ConditionFilter = () => {
           sx={{ fontWeight: "bold" }}
           key={0}
           /* disabled={index === 0} */
-          selected={"Todos" === selectedIndex}
+          selected={"Todos" === conditionState}
           onClick={(event) => handleMenuItemClick(event, "Todos")}
         >
           Todos
         </MenuItem>
-        {conditionState.map((conditionState, index) => (
+        {condition.map((conditionState, index) => (
           <MenuItem
             key={index}
-            selected={conditionState === selectedIndex}
+            selected={conditionState === conditionState}
             onClick={(event) => handleMenuItemClick(event, conditionState)}
           >
             {conditionState}

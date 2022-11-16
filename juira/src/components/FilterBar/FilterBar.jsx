@@ -18,15 +18,20 @@ import ListItemText from "@mui/material/ListItemText";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategoriesNames } from "../../redux/actions/products.actions";
 import DensityMediumIcon from "@mui/icons-material/DensityMedium";
+import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import { updateFilter } from "../../redux/actions/app.actions";
 import SortButton from "./Components/SortButton";
 import ConditionFilter from "./Components/ConditionFilter";
+import ClearIcon from "@mui/icons-material/Clear";
 
 const sort = ["Mayor Valor", "Menor Valor", "A-Z", "Z-A"];
 
 const FilterBar = () => {
   const options = useSelector((state) => state.productsReducer.allCategories);
-  const filterState = useSelector((state)=> state.app.filterState.categories)
+  const filterState = useSelector((state) => state.app.filterState.categories);
+  const conditionState = useSelector(
+    (state) => state.app.filterState.condition
+  );
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCategoriesNames());
@@ -40,7 +45,7 @@ const FilterBar = () => {
 
   const handleMenuItemClick = (event, category) => {
     dispatch(updateFilter({ name: "categories", value: category }));
-    
+
     /* setSelectedIndex(category); */
     setAnchorEl(null);
   };
@@ -51,12 +56,11 @@ const FilterBar = () => {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  
 
   return (
     <AppBar position="relative" style={{ backgroundColor: "#FFF" }}>
       <Container maxWidth="xl">
-        <Toolbar disableGutters variant="dense">
+        <Toolbar disableGutters variant="dense" sx={{ flexWrap: "wrap" }}>
           <Button
             sx={{ m: 0 }}
             id="basic-button"
@@ -64,7 +68,7 @@ const FilterBar = () => {
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
             onClick={handleClick}
-            startIcon={<DensityMediumIcon />}
+            startIcon={filterState !== "Todos" ? <FilterAltIcon /> : null}
             style={{ color: "var(--primaryColor" }}
           >
             Categorias
@@ -106,17 +110,50 @@ const FilterBar = () => {
                 </MenuItem>
               ))}
           </Menu>
-          <ConditionFilter/>
-          <SortButton/>
-          {/* <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1 }}
-            textAlign="center"
-            style={{ color: "var(--primaryColor", textTransform: "Uppercase" }}
-          >
-            {filterState === 0 ? null : filterState}
-          </Typography> */}
+          <ConditionFilter />
+          <SortButton />
+
+          <Typography component="div" sx={{ flexGrow: 1 }}></Typography>
+          {filterState !== "Todos" && (
+            <Button
+              sx={{ m: 0, borderRadius: "9999px", fontSize: 11  }}
+              variant="outlined"
+              size="small"
+              aria-controls={open ? "basic-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? "true" : undefined}
+              endIcon={<ClearIcon style={{ fontSize: 14 }} />}
+              style={{
+                color: "white",
+                backgroundColor: "var(--primaryColor",
+              }}
+              onClick={() =>
+                dispatch(updateFilter({ name: "categories", value: "Todos" }))
+              }
+            >
+              {filterState}
+            </Button>
+          )}
+          {conditionState !== "Todos" && (
+            <Button
+              sx={{ m: 0, mx: 2, borderRadius: "9999px", fontSize: 11 }}
+              variant="outlined"
+              size="small"
+              aria-controls={open ? "basic-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? "true" : undefined}
+              endIcon={<ClearIcon style={{ fontSize: 14 }} />}
+              style={{
+                color: "white",
+                backgroundColor: "var(--primaryColor",
+              }}
+              onClick={() =>
+                dispatch(updateFilter({ name: "condition", value: "Todos" }))
+              }
+            >
+              {conditionState}
+            </Button>
+          )}
         </Toolbar>
       </Container>
     </AppBar>

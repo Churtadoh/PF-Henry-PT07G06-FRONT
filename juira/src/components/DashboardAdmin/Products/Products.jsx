@@ -1,19 +1,15 @@
 import React, { useEffect } from 'react';
-import styles from './Dashboard.module.css';
-import EnhancedTable from './EnhancedTable';
+import styles from './Products.module.css';
+import EnhancedTable from './EnhancedProductsTable';
 //import ProductsTable from './ProductsTable';
 import Container from '@mui/material/Container';
-
-
 // import { ThemeProvider } from '@mui/styles';
 // import { themeOptions } from '../../ThemeColors.js'
 import { makeStyles } from '@mui/styles';
-
-import { useSelector, useDispatch } from 'react-redux';
-import { getAllProducts } from '../../redux/actions/products.actions.jsx';
-
 import DashCard from './DashCard.jsx';
 import { createTheme } from '@mui/material/styles';
+import { API_URL_BACKEND } from '../../../api/apiRoute';
+import axios from 'axios';
 const theme = createTheme();
 
 
@@ -47,22 +43,24 @@ const useStyles = makeStyles({
 
   });
 
+  // let resp = []
+  // axios.get(`${API_URL_BACKEND}products`)
+  // .then(response => resp = response.data)
 
- export default function Dashboard() {
+ export default function Products() {
+
+  const [products, setProducts] = React.useState([])
+  let resp = []
+  axios.get(`${API_URL_BACKEND}products`)
+    .then(response => resp = response.data)
+    .then(() => !products.length && setProducts(resp))
+    .catch(error => console.log(error))
+
+  // !products.length && setProducts(resp)
   
-    let products = useSelector((state) => state.productsReducer.allProducts);
-    // console.log('Dashboard > products: ', products)
-    // console.log('Dashboard > products.length: ', products.length)
-
-    const dispatch = useDispatch();
-    products.length===0 && dispatch(getAllProducts());
-
-    //products && rows.length===0 && products.forEach( p => rows.push(createData(p.name, p.id, p.status, p.price, p.ownerId) ) )
-
-
     const classes = useStyles();
 
-    try {
+    // try {
 
       // Card 1
       let productsTotalQuantity = products.length;
@@ -90,7 +88,7 @@ const useStyles = makeStyles({
         <div className={styles.dashWrapper}>
           
             <Container className={classes.root} 
-            sx={{ width: "85%", height: "100%", /* backgroundColor:"#444", */
+            sx={{ width: "100%", height: "100%", /* backgroundColor:"#444", */
                 boxShadow: '0 8px 15px 5px #cccccc55', padding: '2rem', borderRadius: '.8rem' }} >
 
                 <Container sx={{display:"Flex", flexDirection:"row", justifyContent:"space-evenly", flexWrap: "wrap"}}>
@@ -105,16 +103,16 @@ const useStyles = makeStyles({
 
                 {/* <ProductsTable/> */}
 
-                {<EnhancedTable items={products} className={classes.palette} />}
+                <EnhancedTable products={products} className={classes.palette} setProducts={setProducts} />
                 
             </Container>
           
         </div>
       );
-  }
-  catch(e) {
-    return (null)
-  }
+  // }
+  // catch(e) {
+  //   return (null)
+  // }
 }
 
 {/* <ThemeProvider theme={themeOptions}> */}

@@ -5,8 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategoriesNames } from "../../../redux/actions/products.actions";
 import { updateFilter } from "../../../redux/actions/app.actions";
-import SortIcon from '@mui/icons-material/Sort';
-
+import SortIcon from "@mui/icons-material/Sort";
 
 const sort = ["Mayor Valor", "Menor Valor", "A-Z", "Z-A"];
 
@@ -21,10 +20,10 @@ const SortButton = () => {
   const open = Boolean(anchorEl);
   const handleClickListItem = (event) => {
     setAnchorEl(event.currentTarget);
-  };/*  */
+  }; /*  */
 
   const handleMenuItemClick = (event, by) => {
-    dispatch(updateFilter({ name : "sort", value: by }));
+    dispatch(updateFilter({ name: "sort", value: by }));
     setSelectedIndex(by);
     setAnchorEl(null);
   };
@@ -46,7 +45,15 @@ const SortButton = () => {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
         style={{ color: "var(--primaryColor", marginLeft: "2rem" }}
+        startIcon={
+          selectedIndex === "Mayor Valor" || selectedIndex === "A-Z" ? (
+            <SortIcon />
+          ) : (
+            <SortIcon style={{ transform: "rotateX(180deg)" }} />
+          )
+        }
       >
+      
         Ordenar
       </Button>
 

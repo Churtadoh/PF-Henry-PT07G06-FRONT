@@ -15,7 +15,9 @@ import {
 import FilterBar from "../FilterBar/FilterBar";
 import { useLocation } from "react-router-dom";
 import { updateFilter } from "../../redux/actions/app.actions";
-import { Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
+import { Container } from "@mui/system";
+import { useHistory } from "react-router-dom";
 
 const _ = require("lodash");
 
@@ -26,6 +28,7 @@ function useQuery() {
 }
 
 export default function Home(/* { prods, getAll } */) {
+  const history = useHistory();
   let query = useQuery();
   const productsState = useSelector(
     (state) => state.productsReducer.allProducts
