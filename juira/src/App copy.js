@@ -26,7 +26,6 @@ function App() {
 
   useEffect(() => {
     reloadSesion(refreshData());
-    
   }, [reloadSesion]);
   return (
     <div className="App">
