@@ -1,0 +1,72 @@
+.heroContainer {
+    background-color: aquamarine;
+    /* height: 10rem; */
+    /* padding-top: 4rem; */
+    /* border: 4px solid blue; */
+    /* height: 100%; */
+    /* background: aquamarine url('../media/pattern_background.png')center/250px; */
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
+
+}
+
+.box {
+    position: absolute;
+    min-height: 80px;
+    width: fit-content;
+    background-color: rgba(255, 255, 255, 0.5);
+    /* border-radius: 1rem; */
+    box-shadow: 0 20px 24px 4px rgb(0 0 0 / 30%);
+    margin-top: 25px;
+    font-weight: 600;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 0;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+
+    z-index: 2;
+}
+
+.img {
+    /* height: 2rem; */
+    width: 30%;
+    height: auto;
+}
+
+/* .divContainer {
+    background-color: rgba(255, 0, 0, 0.212);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+/* .imgWrapper {
+    width: 100%;
+    height: 100%;
+    background: #ccc url('../media/pattern_background.png')
+} */
+
+.imgPattern {
+    width: 100%;
+    height: 100%;
+    background: #ccc url('../media/pattern_background.png') center/250px;
+    background-repeat: repeat;
+    opacity: 0.125;
+}
+
+
+
+/* .centerBox {
+    height: 200px;
+    width: 350px;
+    background-color: white;
+} */
