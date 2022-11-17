@@ -3,9 +3,7 @@ import styles from './Products.module.css';
 import EnhancedTable from './EnhancedProductsTable';
 //import ProductsTable from './ProductsTable';
 import Container from '@mui/material/Container';
-// import { ThemeProvider } from '@mui/styles';
 // import { themeOptions } from '../../ThemeColors.js'
-import { makeStyles } from '@mui/styles';
 import DashCard from './DashCard.jsx';
 import { createTheme } from '@mui/material/styles';
 import { API_URL_BACKEND } from '../../../api/apiRoute';
@@ -13,7 +11,7 @@ import axios from 'axios';
 const theme = createTheme();
 
 
-const useStyles = makeStyles({
+const useStyles = ({
     root: {
     color: theme.palette.primary.main,
   }

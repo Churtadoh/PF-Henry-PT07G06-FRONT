@@ -23,7 +23,7 @@ import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import toast from "react-hot-toast";
 // import { themeOptions } from '../../ThemeColors.js'
 // import { ThemeProvider } from '@mui/material/styles';
-// import { makeStyles, withTheme } from '@mui/styles';
+
 
 function validate(data) {
   let errores = {};

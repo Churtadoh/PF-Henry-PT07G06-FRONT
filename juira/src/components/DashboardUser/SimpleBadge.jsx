@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withStyles } from "@mui/styles";
 import Badge from "@mui/material/Badge";
 import MailIcon from "@mui/icons-material/Mail";
 
@@ -34,4 +33,4 @@ SimpleBadge.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(SimpleBadge);
+export default (styles)(SimpleBadge);

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import styles from './Users.module.css';
 import EnhancedTable from './EnhancedUsersTable';
 import Container from '@mui/material/Container';
-import { makeStyles } from '@mui/styles';
 import { useSelector, useDispatch } from 'react-redux';
 import { createTheme } from '@mui/material/styles';
 import DashCard from './DashCard'
@@ -14,7 +13,7 @@ import { API_URL_BACKEND } from '../../../api/apiRoute';
 
 const theme = createTheme();
 
-const useStyles = makeStyles({
+const useStyles = ({
     root: {
     color: theme.palette.primary.main,
   }
